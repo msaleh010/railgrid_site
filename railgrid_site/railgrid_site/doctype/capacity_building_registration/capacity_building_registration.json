@@ -1,0 +1,248 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-09-07 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sb0",
+  "organisation",
+  "sector",
+  "country",
+  "employees",
+  "cb0",
+  "contact_name",
+  "job_title",
+  "email",
+  "phone",
+  "sb1",
+  "audiences",
+  "tracks",
+  "format",
+  "participants",
+  "cb1",
+  "timing",
+  "source",
+  "consent",
+  "status",
+  "lead",
+  "sb2",
+  "goal",
+  "sb3",
+  "source_url",
+  "ip_address",
+  "cb3",
+  "notification_sent",
+  "acknowledgement_sent"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb0",
+   "fieldtype": "Section Break",
+   "label": "Organisation"
+  },
+  {
+   "fieldname": "organisation",
+   "fieldtype": "Data",
+   "label": "Organisation",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "sector",
+   "fieldtype": "Data",
+   "label": "Sector",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "employees",
+   "fieldtype": "Data",
+   "label": "Number of employees"
+  },
+  {
+   "fieldname": "cb0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_name",
+   "fieldtype": "Data",
+   "label": "Contact name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "job_title",
+   "fieldtype": "Data",
+   "label": "Job title"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break",
+   "label": "Programme"
+  },
+  {
+   "fieldname": "audiences",
+   "fieldtype": "Small Text",
+   "label": "Audiences"
+  },
+  {
+   "fieldname": "tracks",
+   "fieldtype": "Data",
+   "label": "Tracks"
+  },
+  {
+   "fieldname": "format",
+   "fieldtype": "Data",
+   "label": "Format",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "participants",
+   "fieldtype": "Int",
+   "label": "Participants"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "timing",
+   "fieldtype": "Data",
+   "label": "Timing"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "How they heard about us"
+  },
+  {
+   "fieldname": "consent",
+   "fieldtype": "Check",
+   "label": "Consent given"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "New\nContacted\nQualified\nClosed",
+   "default": "New",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "label": "CRM Lead",
+   "options": "Lead",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb2",
+   "fieldtype": "Section Break",
+   "label": "Goal"
+  },
+  {
+   "fieldname": "goal",
+   "fieldtype": "Text",
+   "label": "What they want to achieve"
+  },
+  {
+   "fieldname": "sb3",
+   "fieldtype": "Section Break",
+   "label": "Tracking",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "source_url",
+   "fieldtype": "Data",
+   "label": "Submitted from",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "IP address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notification_sent",
+   "fieldtype": "Check",
+   "label": "Notification email queued",
+   "read_only": 1
+  },
+  {
+   "fieldname": "acknowledgement_sent",
+   "fieldtype": "Check",
+   "label": "Acknowledgement email queued",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-09-07 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "RailGrid Site",
+ "name": "Capacity Building Registration",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "report": 1,
+   "share": 1
+  },
+  {
+   "role": "Website Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "report": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "format:CBR-{YYYY}-{#####}",
+ "title_field": "organisation",
+ "search_fields": "organisation,contact_name,email",
+ "naming_rule": "Expression"
+}
