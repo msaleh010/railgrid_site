@@ -1,0 +1,121 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-09-07 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sb0",
+  "notification_recipients",
+  "cc_recipients",
+  "cb0",
+  "create_leads",
+  "lead_owner",
+  "sb1",
+  "send_acknowledgement",
+  "acknowledgement_subject",
+  "acknowledgement_message"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb0",
+   "fieldtype": "Section Break",
+   "label": "Where enquiries are sent"
+  },
+  {
+   "fieldname": "notification_recipients",
+   "fieldtype": "Small Text",
+   "label": "Notification recipients",
+   "description": "One email address per line. Every website enquiry and capacity-building registration is emailed here.",
+   "default": "info@railgrid.co.tz",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cc_recipients",
+   "fieldtype": "Small Text",
+   "label": "CC",
+   "description": "Optional. One address per line."
+  },
+  {
+   "fieldname": "cb0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "create_leads",
+   "fieldtype": "Check",
+   "label": "Create CRM Leads in ERPNext",
+   "default": "1",
+   "description": "Every submission also creates (or updates) a Lead so it can be followed up in the CRM."
+  },
+  {
+   "fieldname": "lead_owner",
+   "fieldtype": "Link",
+   "label": "Assign new Leads to",
+   "options": "User",
+   "description": "Optional. The user who owns new website Leads."
+  },
+  {
+   "fieldname": "sb1",
+   "fieldtype": "Section Break",
+   "label": "Acknowledgement to the sender"
+  },
+  {
+   "fieldname": "send_acknowledgement",
+   "fieldtype": "Check",
+   "label": "Send an acknowledgement email to the person who submitted the form",
+   "default": "1"
+  },
+  {
+   "fieldname": "acknowledgement_subject",
+   "fieldtype": "Data",
+   "label": "Subject",
+   "default": "Thank you for contacting RailGrid Technologies"
+  },
+  {
+   "fieldname": "acknowledgement_message",
+   "fieldtype": "Text Editor",
+   "label": "Message",
+   "default": "<p>Dear {{ name }},</p><p>Thank you for getting in touch with RailGrid Technologies. We have received your message and one of our consultants will reply within one working day.</p><p>If your request is urgent, call us on +255 787 772 012.</p><p>Kind regards,<br>RailGrid Technologies Limited<br>Dar es Salaam, Tanzania</p>",
+   "description": "Jinja is allowed: {{ name }}, {{ email }}, {{ company }}, {{ topic }}."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-09-07 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "RailGrid Site",
+ "name": "RailGrid Website Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "report": 1,
+   "share": 1
+  },
+  {
+   "role": "Website Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "report": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "issingle": 1
+}
