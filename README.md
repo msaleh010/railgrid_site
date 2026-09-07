@@ -21,3 +21,8 @@ commit, push, and deploy the bench on Frappe Cloud.
 ## License
 
 MIT
+
+## Cache-busting
+
+Frappe serves `/assets/...` with a one-year cache. After changing `site.css` or `site.js`, run
+`python3 stamp_assets.py` before committing: it rewrites the `?v=` hash on the asset links in every page.
