@@ -12,6 +12,7 @@
 
   // Mark current page in navigation
   var path = location.pathname.replace(/index\.html$/, '');
+  if (path.slice(-1) !== '/') path += '/'; // Frappe serves routes without a trailing slash
   document.querySelectorAll('.nav a').forEach(function (a) {
     var href = a.getAttribute('href').replace(/index\.html$/, '');
     if (href !== '/' && href !== './' && path.indexOf(href.replace(/^\.\//, '/')) === 0) a.setAttribute('aria-current', 'page');
@@ -51,7 +52,7 @@
       body.append('data', JSON.stringify(data));
       var button = form.querySelector('[type="submit"]');
       var label = button ? button.textContent : '';
-      if (button) { button.disabled = true; button.textContent = 'Sending…'; }
+      if (button) { button.disabled = true; button.textContent = 'Sending...'; }
       fetch('/api/method/railgrid_site.api.submit', {
         method: 'POST', headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }, body: body, credentials: 'same-origin'
       }).then(function (r) {
