@@ -1,0 +1,111 @@
+/* ------------------------------------------------------------------
+   RailGrid — justified body text + language switch styling
+   Drop-in: load AFTER site.css
+   <link rel="stylesheet" href="/assets/railgrid_site/css/railgrid-justify.css">
+   ------------------------------------------------------------------ */
+
+/* 1. Justify running text (paragraphs, leads, lists, footer copy).
+      Headings, buttons, labels, tables and nav are left untouched
+      so the rag on short lines stays clean. Hyphenation is on so the
+      justified lines do not open up "rivers" in narrow cards. */
+main p,
+main .lead,
+main li,
+main dd,
+main blockquote,
+main figcaption,
+main .card p,
+main .split p,
+main .list li,
+.footer p,
+.footer .small {
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: 8 4 4;   /* only hyphenate 8+ letter words */
+  overflow-wrap: break-word;
+}
+
+/* Never justify these even when nested inside a justified block */
+main h1, main h2, main h3, main h4,
+main .eyebrow, main .pill, main .card__label, main .card__more,
+main .btn, main label, main th, main td, main .form__status,
+main .section-head p:empty,
+main [data-no-justify], main [data-no-justify] * {
+  text-align: start;
+  hyphens: manual;
+  -webkit-hyphens: manual;
+}
+
+/* Lists with check-marks: the marker column must stay aligned */
+main .list li { text-align: justify; }
+
+/* Short one-liners (KPI captions, "Live" chips, form hints) look odd
+   when stretched; keep them natural. Add data-no-justify on the element. */
+
+/* Heading line-balance (modern browsers, harmless elsewhere) */
+main h1, main h2, main h3 { text-wrap: balance; }
+main p, main li { text-wrap: pretty; }
+
+/* On phones, justify with hyphenation can still stretch words in
+   narrow cards. Keep justification but soften with a slightly tighter
+   letter-space budget. If you prefer left-aligned on mobile, change
+   `justify` to `start` in this block only. */
+@media (max-width: 560px) {
+  main .card p, main .card li { text-align: justify; }
+}
+
+/* 2. Language switch (injected by railgrid-i18n.js into .header__cta) */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding: 3px;
+  border: 1px solid var(--line, #dfe5ee);
+  border-radius: 999px;
+  background: var(--white, #fff);
+  gap: 2px;
+}
+.lang-switch button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  height: 30px;
+  padding: 0 9px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--ink-3, #6b7890);
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.lang-switch button:hover { color: var(--navy, #012256); }
+.lang-switch button[aria-pressed="true"] {
+  background: var(--navy, #012256);
+  color: #fff;
+}
+.lang-switch button:focus-visible {
+  outline: 2px solid var(--cyan, #01b2de);
+  outline-offset: 2px;
+}
+@media (max-width: 860px) {
+  .lang-switch { height: 36px; }
+  .lang-switch button { height: 28px; padding: 0 10px; font-size: 12px; }
+}
+@media (max-width: 560px) {
+  /* Keep the switch visible; hide the CTA text label on very small screens */
+  .header__cta .btn--sm { display: none; }
+}
+
+/* 3. Keep the primary nav on one line now that the switch takes room.
+      Kiswahili labels run ~20% longer than English, so tighten them. */
+.nav a { white-space: nowrap; }
+html[lang="sw"] .nav { gap: 0; }
+html[lang="sw"] .nav a { padding-inline: 8px; font-size: 13px; }
+@media (max-width: 1180px) and (min-width: 1025px) {
+  .nav a { font-size: 13px; padding-inline: 8px; }
+  html[lang="sw"] .nav a { font-size: 12.5px; padding-inline: 6px; }
+}

@@ -18,6 +18,41 @@ Edit `src/pages/*.html` in the design source, run `ASSET_BASE=/assets/railgrid_s
 copy `dist/**/index.html` into `railgrid_site/www/` and `dist/assets/*` into `railgrid_site/public/`,
 commit, push, and deploy the bench on Frappe Cloud.
 
+## Language switch (English / Kiswahili)
+
+`public/js/railgrid-i18n.js` adds the EN | SW toggle to the header and holds the Kiswahili dictionary
+(English string as rendered → Kiswahili). Keys are matched exactly after whitespace is collapsed, so
+when you change English copy, change the matching key too or the string falls back to English.
+In the browser console `RailGridI18n.missing()` lists untranslated strings on the current page.
+Add `data-i18n-skip` to any element that must never be translated. `?lang=sw` on any URL opens the
+Kiswahili version; the choice is remembered in the visitor's browser.
+
+`public/css/railgrid-justify.css` justifies running text (paragraphs, leads, lists) with hyphenation
+and styles the switch. Headings, buttons, labels and tables stay left-aligned.
+
+Phase two (recommended once the copy settles): move the dictionary into Frappe's translation system
+(`{{ _("…") }}` in the templates + `translations/sw.csv`) and serve `/sw/` routes, so search engines
+index the Kiswahili pages with their own URLs and `hreflang` tags.
+
+## Open Graph cards
+
+`tools/og.py` renders a 1200×630 card per page into `public/img/og/`. Re-run it after adding a page
+(add the route and headline to `CARDS`). Drop `Manrope-ExtraBold.ttf` into `tools/` to render the
+cards in the brand face instead of DejaVu Sans.
+
+## Sitemap, 404 and security headers
+
+Each page has an `index.py` with `sitemap = 1` so Frappe lists it in `/sitemap.xml`. `www/404.html`
+is the branded not-found page. `headers.py` (wired through the `after_request` hook) adds a
+Content-Security-Policy and related headers to public pages only; the Desk and API are untouched.
+If you add a third-party script (analytics, chat), extend `CSP` in `headers.py`.
+
+## Self-hosting the font
+
+The pages load Manrope from Google Fonts. To remove that third-party request, download the 500/600/700/800
+woff2 files (e.g. from the `@fontsource/manrope` npm package), put them in `public/fonts/`, add the
+`@font-face` rules to `site.css` and delete the two `fonts.googleapis.com` links from the page heads.
+
 ## License
 
 MIT

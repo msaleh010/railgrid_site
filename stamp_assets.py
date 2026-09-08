@@ -5,7 +5,8 @@ Run after copying new pages/assets in:  python3 stamp_assets.py"""
 import hashlib, pathlib, re
 ROOT = pathlib.Path(__file__).parent / "railgrid_site"
 def h(p): return hashlib.sha1(p.read_bytes()).hexdigest()[:8]
-versions = {"css/site.css": h(ROOT / "public/css/site.css"), "js/site.js": h(ROOT / "public/js/site.js")}
+ASSETS = ["css/site.css", "css/railgrid-justify.css", "js/site.js", "js/railgrid-i18n.js"]
+versions = {rel: h(ROOT / "public" / rel) for rel in ASSETS}
 for page in ROOT.glob("www/**/*.html"):
     s = page.read_text()
     for rel, v in versions.items():

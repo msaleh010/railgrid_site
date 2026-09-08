@@ -82,4 +82,39 @@
     var update = function () { out.textContent = ta.value.length + ' / ' + ta.getAttribute('maxlength') + ' characters'; };
     ta.addEventListener('input', update); update();
   });
+
+  // Pre-fill the contact form from the URL (edition pages link here with
+  // ?topic=anchor&sector=public so the enquiry arrives already classified).
+  (function () {
+    var form = document.querySelector('form[data-webform="contact-enquiry"]');
+    if (!form) return;
+    var q = new URLSearchParams(location.search);
+    var topics = { walkthrough: 'Book a product walkthrough', anchor: 'Apply as an anchor client', advisory: 'Request an advisory session',
+                   hosting: 'Ask about hosting and pricing', briefings: 'Receive the quarterly briefings' };
+    var sectors = { public: 'Government & Public Sector', banking: 'Banking & Financial Services', utilities: 'Energy & Utilities',
+                    mining: 'Mining & Resources', logistics: 'Logistics & Trade', industrial: 'Industrial Operations' };
+    var topic = topics[q.get('topic')], sector = sectors[q.get('sector')];
+    var select = form.querySelector('select[name="topic"]');
+    if (topic && select) {
+      Array.prototype.forEach.call(select.options, function (o) { if (o.textContent.trim() === topic) select.value = o.value; });
+    }
+    var message = form.querySelector('textarea[name="message"]');
+    if (sector && message && !message.value) {
+      message.value = 'Sector: ' + sector + '\n\n';
+    }
+    if ((topic || sector) && location.hash !== '#form') {
+      var target = form.closest('section') || form;
+      if (target.scrollIntoView) target.scrollIntoView({ block: 'start' });
+    }
+  })();
+
+  // "Copy link" on articles
+  document.querySelectorAll('[data-copy-link]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var label = btn.textContent;
+      var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = label; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(location.href).then(done, function () {});
+      else { window.prompt('Copy this link', location.href); }
+    });
+  });
 })();
