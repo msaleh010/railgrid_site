@@ -12,6 +12,7 @@ home_page = "index"
 # Website-level redirects (old URLs and file-style paths -> folder-style routes).
 website_redirects = [
 	{"source": r"/index\.html", "target": "/"},
+	{"source": r"/index", "target": "/"},
 	{"source": r"/home", "target": "/"},
 	{"source": r"/about", "target": "/"},
 	{"source": r"/products", "target": "/editions/"},
@@ -20,6 +21,9 @@ website_redirects = [
 	{"source": r"/contact\.html", "target": "/contact/"},
 	{"source": r"/contact-us", "target": "/contact/"},
 ]
+
+# Security headers on public pages (see headers.py)
+after_request = ["railgrid_site.headers.after_request"]
 
 after_install = "railgrid_site.install.after_install"
 after_migrate = "railgrid_site.install.after_migrate"

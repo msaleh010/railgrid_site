@@ -289,3 +289,9 @@ p { margin: 0; text-wrap: pretty; }
 .card h2.h3 { font-size: 17px; margin: 0 0 8px; }
 .footer p a { color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,.35); display: inline; }
 .footer p a:hover { text-decoration-color: #fff; }
+
+/* Article byline and share row (audit, Sep 2026) */
+.byline { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--ink); }
+.byline__avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; flex: none; }
+.share { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 20px 0; border-top: 1px solid var(--line); }
+.post-card .pill { margin-top: auto; }
