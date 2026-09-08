@@ -787,6 +787,9 @@
     'Privacy Notice | RailGrid Technologies': 'Taarifa ya Faragha | RailGrid Technologies',
     /* ---------- Added after the September 2026 audit ---------- */
     'Skip to content': 'Ruka hadi maudhui',
+    'Shift roster': 'Ratiba ya zamu',
+    'GPS clock‑ins – Site A, today': 'Kuingia kwa GPS – Eneo A, leo',
+    'Verified': 'Imethibitishwa',
     'Available': 'Inapatikana',
     'Anchor client sought': 'Mteja‑nanga anatafutwa',
     'Be the anchor client in this sector →': 'Kuwa mteja‑nanga katika sekta hii →',
@@ -798,7 +801,7 @@
     'One workforce system, from the gate to the approval chain.': 'Mfumo mmoja wa wafanyakazi, kuanzia getini hadi mnyororo wa idhini.',
     'Before: employee records in spreadsheets by site, leave tracked by email, attendance on paper at the gate, and a payroll assembled by hand each month. After: every employee event captured once, approved through a defined chain, and recorded with a full audit trail. Statutory payroll and the Exact posting are the next phase.': 'Kabla: rekodi za wafanyakazi kwenye majedwali kwa kila eneo, likizo zikifuatiliwa kwa barua pepe, mahudhurio kwenye karatasi getini, na mishahara ikikusanywa kwa mikono kila mwezi. Baada: kila tukio la mfanyakazi linarekodiwa mara moja, linaidhinishwa kupitia mnyororo uliobainishwa, na kuhifadhiwa na rekodi kamili ya ukaguzi. Mishahara ya kisheria na uchapishaji kwenye Exact ni awamu inayofuata.',
     'Shift roster – Site B, September': 'Ratiba ya zamu – Eneo B, Septemba',
-    'Published': 'Imechapishwa',
+    'Published': 'Imetolewa',
     'Migration of historical records from spreadsheets, reconciled before go‑live; statutory returns and the payroll posting to Exact are scheduled as the next phase.': 'Uhamishaji wa rekodi za zamani kutoka majedwali, zilizosuluhishwa kabla ya kuanza kutumika; ritani za kisheria na uchapishaji wa mishahara kwenye Exact zimepangwa kama awamu inayofuata.',
     'GPS clock‑in across 6 sites': 'Kuingia kazini kwa GPS katika maeneo 6',
     'Built to post payroll journals to Exact each cycle, with the audit trail back to every employee record – Taifa\'s next phase.': 'Imejengwa kuchapisha majarida ya mishahara kwenye Exact kila mzunguko, na rekodi ya ukaguzi inayorudi hadi kila rekodi ya mfanyakazi – awamu inayofuata ya Taifa.',
@@ -993,7 +996,9 @@
   function boot() {
     collectFrom(document.body);
     buildSwitch();
-    apply(initialLang());
+    var fromUrl = location.search.match(/[?&]lang=(en|sw)\b/);
+    if (fromUrl) setLang(fromUrl[1]);      // a shared ?lang=sw link sticks for the rest of the visit
+    else apply(initialLang());
     observe();
   }
 
