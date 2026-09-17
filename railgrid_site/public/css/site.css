@@ -6,11 +6,11 @@
   --navy-700: #0b3170;
   --navy-900: #01173a;
   --cyan: #01b2de;
-  --cyan-600: #0796bb;
+  --cyan-600: #0a6f8e; /* was #0796bb – darkened for WCAG AA text contrast (5.4:1 on the page background) */
   --cyan-100: #e2f6fc;
   --ink: #0f1a2e;
   --ink-2: #3a4a63;
-  --ink-3: #6b7890;
+  --ink-3: #5c6a83; /* was #6b7890 – darkened for WCAG AA small-text contrast (5.1:1) */
   --line: #dfe5ee;
   --line-2: #eef2f7;
   --paper: #f6f8fb;
@@ -295,3 +295,33 @@ p { margin: 0; text-wrap: pretty; }
 .byline__avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; flex: none; }
 .share { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 20px 0; border-top: 1px solid var(--line); }
 .post-card .pill { margin-top: auto; }
+
+/* ---- Accessibility & legal pass (Sep 2026) ---- */
+/* Visible keyboard focus on every interactive element (mouse clicks keep the clean look). */
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid var(--cyan); outline-offset: 2px; box-shadow: 0 0 0 5px rgba(1,178,222,.25); border-radius: var(--radius-sm); }
+.section--dark a:focus-visible, .footer a:focus-visible, .btn--navy:focus-visible { outline-color: #fff; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+/* Grouped checkboxes are real fieldsets so screen readers announce the group name. */
+fieldset.field { border: 0; padding: 0; margin: 0; min-width: 0; }
+fieldset.field legend { font-size: 14px; font-weight: 600; color: var(--navy); padding: 0; margin-bottom: 8px; }
+fieldset.field legend small { font-weight: 500; color: var(--ink-3); }
+fieldset.is-invalid .checks { outline: 2px solid var(--amber); outline-offset: 6px; border-radius: 4px; }
+.field--consent { margin-top: 4px; }
+.field--consent .check span { font-size: 14px; line-height: 1.5; }
+.field--consent input[type="checkbox"] { width: 18px; height: 18px; flex: none; margin-top: 3px; }
+.form__status.is-visible { display: block; }
+/* Footer legal links */
+.footer__links { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.footer__links a { display: inline; padding: 0; }
+/* Legal pages */
+.legal > * { max-width: 800px; }
+.legal h2 { font-size: 22px; margin-top: 40px; }
+.legal h3 { font-size: 17px; margin-top: 24px; }
+.legal p, .legal li { font-size: 16px; color: var(--ink-2); margin-top: 12px; line-height: 1.65; }
+.legal ul { padding-left: 22px; }
+.legal table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 15px; }
+.legal th, .legal td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.legal th { background: var(--line-2); color: var(--navy); font-weight: 700; }
+.legal .meta { font-size: 14px; color: var(--ink-3); }
+.legal a { text-decoration: underline; text-underline-offset: 2px; }
+.legal-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; margin-top: 16px; }
