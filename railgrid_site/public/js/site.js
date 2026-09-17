@@ -43,6 +43,25 @@
         status.classList.toggle('is-error', !ok);
         status.setAttribute('role', ok ? 'status' : 'alert');
       };
+      // Checkbox groups that need at least one choice (fieldset > .checks[data-min-checked])
+      var groupsOk = true;
+      form.querySelectorAll('[data-min-checked]').forEach(function (group) {
+        var min = parseInt(group.getAttribute('data-min-checked'), 10) || 1;
+        var boxes = group.querySelectorAll('input[type="checkbox"]');
+        var checked = group.querySelectorAll('input[type="checkbox"]:checked').length;
+        var fieldset = group.closest('fieldset');
+        if (checked < min) {
+          groupsOk = false;
+          if (fieldset) fieldset.classList.add('is-invalid');
+          if (boxes[0]) { boxes[0].setAttribute('aria-invalid', 'true'); boxes[0].focus(); }
+        } else {
+          if (fieldset) fieldset.classList.remove('is-invalid');
+          boxes.forEach(function (b) { b.removeAttribute('aria-invalid'); });
+        }
+      });
+      if (!groupsOk) { show('Please choose at least one audience to be reached.', false); return; }
+      var consent = form.querySelector('input[name="consent"]');
+      if (consent && !consent.checked) { consent.focus(); show('Please tick the consent box so we may store your details and reply to you.', false); return; }
       var data = {};
       new FormData(form).forEach(function (v, k) {
         if (data[k] !== undefined) { data[k] = [].concat(data[k], v); } else { data[k] = v; }
@@ -70,7 +89,7 @@
         if (window.gtag) { try { gtag('event', 'generate_lead', { form: form.getAttribute('data-webform') }); } catch (e) {} }
       }).catch(function (err) {
         var detail = err && err.message && !/Failed to fetch|NetworkError/i.test(err.message) ? ' (' + err.message.replace(/<[^>]+>/g, '') + ')' : '';
-        show('Sorry, your message could not be sent' + detail + '. Please email info@railgrid.co.tz or call +255 787 772 012 and we will reply within one working day.', false);
+        show('Sorry, your message could not be sent' + detail + '. Please email info@railgrid.co.tz or call +255 795 300 400 and we will reply within one working day.', false);
       }).finally(function () { if (button) { button.disabled = false; button.textContent = label; } });
     });
   });
