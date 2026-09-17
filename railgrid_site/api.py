@@ -15,12 +15,18 @@ from frappe.utils import cstr, strip_html, validate_email_address
 
 MAX_LEN = {"message": 4000, "goal": 2000}
 
+# Wording of the consent box at the time of submission, stored with the record as evidence of consent.
+CONSENT_TEXT = {
+	"enquiry": "I agree that RailGrid Technologies Limited may store the details I have provided and contact me about this enquiry, and that they are held in RailGrid's ERPNext system hosted with Frappe Cloud outside Tanzania, as described in the privacy notice.",
+	"registration": "I agree that RailGrid Technologies Limited may store the details I have provided and contact me about this registration, and that they are held in RailGrid's ERPNext system hosted with Frappe Cloud outside Tanzania, as described in the privacy notice.",
+}
+
 FORMS = {
 	"contact-enquiry": {
 		"doctype": "Website Enquiry",
 		"kind": "enquiry",
-		"fields": ["full_name", "email", "company", "phone", "topic", "message"],
-		"required": ["full_name", "email", "message"],
+		"fields": ["full_name", "email", "company", "phone", "topic", "message", "consent"],
+		"required": ["full_name", "email", "message", "consent"],
 	},
 	"capacity-building-registration": {
 		"doctype": "Capacity Building Registration",
@@ -29,7 +35,7 @@ FORMS = {
 			"organisation", "sector", "country", "employees", "contact_name", "job_title", "email", "phone",
 			"audiences", "tracks", "format", "participants", "timing", "source", "goal", "consent",
 		],
-		"required": ["organisation", "contact_name", "email"],
+		"required": ["organisation", "contact_name", "email", "consent"],
 	},
 }
 
@@ -76,8 +82,13 @@ def submit(form, data):
 			values[fieldname] = _clean(raw, MAX_LEN.get(fieldname, 250))
 
 	missing = [f for f in spec["required"] if not values.get(f)]
+	if "consent" in missing:
+		# Consent is the legal basis for storing the submission (PDPA 2022); refuse without it.
+		frappe.throw(_("Please tick the consent box so we may store your details and reply to you."), frappe.MandatoryError)
 	if missing:
 		frappe.throw(_("Please fill in the required fields."), frappe.MandatoryError)
+	values["consent_text"] = CONSENT_TEXT[spec["kind"]]
+	values["consent_at"] = frappe.utils.now_datetime()
 
 	if not validate_email_address(values.get("email")):
 		frappe.throw(_("Please enter a valid email address."), frappe.ValidationError)

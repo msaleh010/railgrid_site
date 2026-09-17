@@ -20,6 +20,13 @@ website_redirects = [
 	{"source": r"/services", "target": "/platform/"},
 	{"source": r"/contact\.html", "target": "/contact/"},
 	{"source": r"/contact-us", "target": "/contact/"},
+	{"source": r"/privacy-policy", "target": "/privacy/"},
+	{"source": r"/privacy-notice", "target": "/privacy/"},
+	{"source": r"/terms-and-conditions", "target": "/terms/"},
+	{"source": r"/terms-of-use", "target": "/terms/"},
+	{"source": r"/cookie-policy", "target": "/cookies/"},
+	{"source": r"/refund-policy", "target": "/refunds/"},
+	{"source": r"/refund", "target": "/refunds/"},
 ]
 
 # Security headers on public pages (see headers.py)
