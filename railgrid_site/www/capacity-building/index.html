@@ -23,9 +23,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/railgrid_site/css/site.css?v=9dc3ac3e">
+<link rel="stylesheet" href="/assets/railgrid_site/css/site.css?v=47d51cdc">
 <link rel="stylesheet" href="/assets/railgrid_site/css/railgrid-justify.css?v=1905695e">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://railgrid.co.tz/#organization","name":"RailGrid Technologies Limited","alternateName":"RailGrid","url":"https://railgrid.co.tz/","logo":{"@type":"ImageObject","url":"https://railgrid.co.tz/assets/railgrid_site/img/logo-color@2x.png"},"email":"info@railgrid.co.tz","telephone":"+255787772012","address":{"@type":"PostalAddress","addressLocality":"Dar es Salaam","addressCountry":"TZ"},"areaServed":["TZ","KE","UG","RW","ZM","CD","AE"],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"info@railgrid.co.tz","telephone":"+255787772012","availableLanguage":["en","sw"]}],"knowsAbout":["ERPNext","Frappe","ERP implementation","Tanzanian statutory payroll","Inland container depot operations"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://railgrid.co.tz/"},{"@type":"ListItem","position":2,"name":"Capacity building","item":"https://railgrid.co.tz/capacity-building/"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://railgrid.co.tz/#organization","name":"RailGrid Technologies Limited","alternateName":"RailGrid","url":"https://railgrid.co.tz/","logo":{"@type":"ImageObject","url":"https://railgrid.co.tz/assets/railgrid_site/img/logo-color@2x.png"},"email":"info@railgrid.co.tz","telephone":"+255795300400","address":{"@type":"PostalAddress","addressLocality":"Dar es Salaam","addressCountry":"TZ"},"areaServed":["TZ","KE","UG","RW","ZM","CD","AE"],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"info@railgrid.co.tz","telephone":"+255795300400","availableLanguage":["en","sw"]}],"knowsAbout":["ERPNext","Frappe","ERP implementation","Tanzanian statutory payroll","Inland container depot operations"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://railgrid.co.tz/"},{"@type":"ListItem","position":2,"name":"Capacity building","item":"https://railgrid.co.tz/capacity-building/"}]}]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -38,7 +38,7 @@
     <nav class="nav" aria-label="Primary"><a href="/platform/">Platform</a><a href="/editions/">Sector editions</a><a href="/deployment/">Deployment</a><a href="/capacity-building/">Capacity building</a><a href="/insights/">Insights</a><a href="/contact/">Contact</a></nav>
     <div class="header__cta">
       <a class="btn btn--primary btn--sm" href="/contact/">Book a walkthrough</a>
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
 </header>
@@ -159,7 +159,7 @@
         <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
         <span class="form__legend">The organisation</span>
         <div class="form__row">
-          <div class="field"><label for="org">Organisation name <small>(required)</small></label><input id="org" name="organisation" required></div>
+          <div class="field"><label for="org">Organisation name <small>(required)</small></label><input id="org" name="organisation" required autocomplete="organization"></div>
           <div class="field"><label for="sector">Sector <small>(required)</small></label><select id="sector" name="sector" required><option value="">Select a sector</option><option>Manufacturing</option><option>Logistics, transport and terminals</option><option>Trading and distribution</option><option>Government institution or public body</option><option>Mining, civils and projects</option><option>Financial or professional services</option><option>Energy and utilities</option><option>Other</option></select></div>
         </div>
         <div class="form__row">
@@ -168,24 +168,24 @@
         </div>
         <span class="form__legend">Who we should speak to</span>
         <div class="form__row">
-          <div class="field"><label for="cname">Contact name <small>(required)</small></label><input id="cname" name="contact_name" required></div>
-          <div class="field"><label for="jtitle">Job title <small>(required)</small></label><input id="jtitle" name="job_title" required></div>
+          <div class="field"><label for="cname">Contact name <small>(required)</small></label><input id="cname" name="contact_name" required autocomplete="name"></div>
+          <div class="field"><label for="jtitle">Job title <small>(required)</small></label><input id="jtitle" name="job_title" required autocomplete="organization-title"></div>
         </div>
         <div class="form__row">
-          <div class="field"><label for="cemail">Work email <small>(required)</small></label><input id="cemail" name="email" type="email" required></div>
-          <div class="field"><label for="cphone">Phone <small>(international format accepted)</small></label><input id="cphone" name="phone" type="tel"></div>
+          <div class="field"><label for="cemail">Work email <small>(required)</small></label><input id="cemail" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="cphone">Phone <small>(international format accepted)</small></label><input id="cphone" name="phone" type="tel" autocomplete="tel"></div>
         </div>
         <span class="form__legend">What you need</span>
-        <div class="field"><label>Audiences to be reached <small>(required)</small></label>
-          <div class="checks">
+        <fieldset class="field"><legend>Audiences to be reached <small>(required – choose at least one)</small></legend>
+          <div class="checks" data-min-checked="1">
             <label class="check"><input type="checkbox" name="audiences" value="Board and directors"><span>Board and directors</span></label>
             <label class="check"><input type="checkbox" name="audiences" value="Chief executives and executive committee"><span>Chief executives and executive committee</span></label>
             <label class="check"><input type="checkbox" name="audiences" value="Technology leadership"><span>Technology leadership</span></label>
             <label class="check"><input type="checkbox" name="audiences" value="Functional and departmental heads"><span>Functional and departmental heads</span></label>
             <label class="check"><input type="checkbox" name="audiences" value="IT and technical teams"><span>IT and technical teams</span></label>
           </div>
-        </div>
-        <div class="field"><label>Tracks of interest</label>
+        </fieldset>
+        <fieldset class="field"><legend>Tracks of interest</legend>
           <div class="checks">
             <label class="check"><input type="checkbox" name="tracks" value="A"><span>Track A · Boardroom and directors</span></label>
             <label class="check"><input type="checkbox" name="tracks" value="B"><span>Track B · Chief executives and executive committees</span></label>
@@ -193,7 +193,7 @@
             <label class="check"><input type="checkbox" name="tracks" value="D"><span>Track D · Functional and departmental heads</span></label>
             <label class="check"><input type="checkbox" name="tracks" value="E"><span>Track E · Sector tracks</span></label>
           </div>
-        </div>
+        </fieldset>
         <div class="form__row">
           <div class="field"><label for="format">Preferred format <small>(required)</small></label><select id="format" name="format" required><option value="">Select a format</option><option>Executive briefing</option><option>Workshop</option><option>Tailor‑made programme</option><option>Maturity assessment and roadmap</option><option>Embedded advisory</option><option>Not sure yet</option></select></div>
           <div class="field"><label for="participants">Approximate number of participants</label><input id="participants" name="participants" type="number" min="1"></div>
@@ -203,9 +203,9 @@
           <div class="field"><label for="source">How did you hear about this?</label><select id="source" name="source"><option value="">Select an option</option><option>Referral</option><option>LinkedIn</option><option>Web search</option><option>Event</option><option>Existing RailGrid client</option><option>Other</option></select></div>
         </div>
         <div class="field"><label for="goal">What are you trying to achieve?</label><textarea id="goal" name="goal" maxlength="1000"></textarea><span class="form__note" data-count-for="goal"></span></div>
-        <label class="check"><input type="checkbox" name="consent" required><span>I agree that RailGrid Technologies Limited may contact me about this enquiry and may store the information I have provided for that purpose. See our <a href="/privacy/">privacy notice</a>.</span></label>
-        <div class="form__status" role="status"></div>
-        <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><button class="btn btn--navy btn--lg" type="submit">Submit registration</button><span class="form__note">Your details are used for this enquiry only.</span></div>
+        <div class="field field--consent"><label class="check"><input type="checkbox" name="consent" id="cconsent" required><span>I agree that RailGrid Technologies Limited may store the details I have provided and contact me about this registration, and that they are held in RailGrid's ERPNext system hosted with Frappe Cloud outside Tanzania, as described in the <a href="/privacy/">privacy notice</a>. <small>(required)</small></span></label></div>
+        <div class="form__status" role="status" aria-live="polite"></div>
+        <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><button class="btn btn--navy btn--lg" type="submit">Submit registration</button><span class="form__note">Your details are used for this registration only. You can withdraw consent at any time by emailing <a href="mailto:info@railgrid.co.tz">info@railgrid.co.tz</a>.</span></div>
       </form>
     </div>
   </div>
@@ -218,7 +218,7 @@
       <div>
         <img src="/assets/railgrid_site/img/logo-white.png" alt="RailGrid Technologies" width="180" height="135" loading="lazy" decoding="async">
         <p>Strengthening the institutions Africa already runs on – evolution, not revolution.</p>
-        <p class="mt-16">RailGrid Technologies Limited · Dar es Salaam, Tanzania<br><a href="mailto:info@railgrid.co.tz">info@railgrid.co.tz</a> · <a href="tel:+255787772012">+255 787 772 012</a></p>
+        <p class="mt-16">RailGrid Technologies Limited, a company incorporated in the United Republic of Tanzania · Dar es Salaam, Tanzania<br><a href="mailto:info@railgrid.co.tz">info@railgrid.co.tz</a> · <a href="tel:+255795300400">+255 795 300 400</a></p>
         <p class="mt-16 small">RailGrid implements and supports ERPNext, an open-source product of Frappe Technologies. ERPNext and Frappe are trademarks of Frappe Technologies Pvt. Ltd. ICDOS™, HCMOS™ and WMOS™ are RailGrid sector editions built on ERPNext.</p>
       </div>
       <div>
@@ -244,11 +244,11 @@
     </div>
     <div class="footer__legal">
       <span>© 2026 RailGrid Technologies Limited. All rights reserved.</span>
-      <span><a href="/privacy/" style="display:inline">Privacy notice</a></span>
+      <nav class="footer__links" aria-label="Legal"><a href="/privacy/">Privacy notice</a><a href="/terms/">Terms &amp; conditions</a><a href="/cookies/">Cookie policy</a><a href="/refunds/">Refund &amp; cancellation policy</a></nav>
     </div>
   </div>
 </footer>
-<script src="/assets/railgrid_site/js/site.js?v=fb6b6e56"></script>
-<script src="/assets/railgrid_site/js/railgrid-i18n.js?v=597f9367" defer></script>
+<script src="/assets/railgrid_site/js/site.js?v=51f88e64"></script>
+<script src="/assets/railgrid_site/js/railgrid-i18n.js?v=44ca645e" defer></script>
 </body>
 </html>
