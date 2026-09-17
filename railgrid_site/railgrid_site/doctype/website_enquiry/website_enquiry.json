@@ -19,6 +19,9 @@
   "sb3",
   "source_url",
   "ip_address",
+  "consent",
+  "consent_text",
+  "consent_at",
   "cb3",
   "notification_sent",
   "acknowledgement_sent"
@@ -107,6 +110,25 @@
    "fieldname": "ip_address",
    "fieldtype": "Data",
    "label": "IP address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "consent",
+   "fieldtype": "Check",
+   "label": "Consent given",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "consent_text",
+   "fieldtype": "Small Text",
+   "label": "Consent wording shown",
+   "read_only": 1
+  },
+  {
+   "fieldname": "consent_at",
+   "fieldtype": "Datetime",
+   "label": "Consent recorded at",
    "read_only": 1
   },
   {
