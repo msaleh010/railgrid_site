@@ -32,9 +32,12 @@ CARDS = {  # route -> (eyebrow, headline)
     "/capacity-building/": ("Capacity building", "Build the capability to specify, govern and get value from technology."),
     "/insights/": ("Insights", "Research, analysis and advisory on infrastructure governance."),
     "/insights/tour-de-france-moving-grid/": ("Insights · Infrastructure", "The Moving Grid: what the Tour de France teaches about infrastructure."),
-    "/clients/": ("Clients", "Taifa Mining & Civils: 1,050 employees, 6 sites, one auditable system."),
+    "/clients/": ("Clients", "A mining & civils contractor: 1,000+ employees, multiple sites, one auditable system."),
     "/contact/": ("Contact", "Book a working session with the team that implements and supports the system."),
     "/privacy/": ("Privacy notice", "What we collect, why we hold it, and how to have it removed."),
+    "/terms/": ("Terms & conditions", "The terms on which railgrid.co.tz is made available."),
+    "/cookies/": ("Cookie policy", "Necessary cookies and a language preference. No tracking."),
+    "/refunds/": ("Refund & cancellation policy", "How cancellation and refunds work for contracted services."),
 }
 
 
