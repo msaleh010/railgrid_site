@@ -25,6 +25,8 @@
   "timing",
   "source",
   "consent",
+  "consent_text",
+  "consent_at",
   "status",
   "lead",
   "sb2",
@@ -142,6 +144,18 @@
    "fieldname": "consent",
    "fieldtype": "Check",
    "label": "Consent given"
+  },
+  {
+   "fieldname": "consent_text",
+   "fieldtype": "Small Text",
+   "label": "Consent wording shown",
+   "read_only": 1
+  },
+  {
+   "fieldname": "consent_at",
+   "fieldtype": "Datetime",
+   "label": "Consent recorded at",
+   "read_only": 1
   },
   {
    "fieldname": "status",
